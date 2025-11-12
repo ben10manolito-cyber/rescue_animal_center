@@ -1,0 +1,5 @@
+id,name,species,age,gender,status,habitatId
+1e2f3a,Duke,DOG,4,MALE,AVAILABLE,HAB-001
+2a3b4c,Luna,CAT,2,FEMALE,RESCUED,HAB-002
+3c4d5e,Kiwi,BIRD,1,UNKNOWN,IN_TREATMENT,HAB-003
+a1a00a97-dd7b-4e01-b8c0-0d9e31bf7390,Firulais,DOG,3,MALE,AVAILABLE,HAB-001

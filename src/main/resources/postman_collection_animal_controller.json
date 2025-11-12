@@ -1,0 +1,130 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - AnimalController",
+    "description": "Colección para probar los endpoints de AnimalController",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Animals",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/animals",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "animals"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Animal By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/animals/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "animals",
+            "{{id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Animal",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Firulais\",\n  \"species\": \"DOG\",\n  \"age\": 3,\n  \"gender\": \"MALE\",\n  \"status\": \"AVAILABLE\",\n  \"habitatId\": \"HAB-001\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/animals",
+          "host": [
+            "{{baseUrl}}"
+          ],
+        "path": [
+            "api",
+            "animals"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Animal",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Firulais Actualizado\",\n  \"species\": \"DOG\",\n  \"age\": 4,\n  \"gender\": \"MALE\",\n  \"status\": \"IN_TREATMENT\",\n  \"habitatId\": \"HAB-001\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/animals/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "animals",
+            "{{id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Animal",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/animals/{{id}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "animals",
+            "{{id}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "id",
+      "value": "REEMPLAZA-CON-ID-EXISTENTE"
+    }
+  ]
+}
