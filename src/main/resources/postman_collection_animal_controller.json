@@ -81,7 +81,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"name\": \"Firulais Actualizado\",\n  \"species\": \"DOG\",\n  \"age\": 4,\n  \"gender\": \"MALE\",\n  \"status\": \"IN_TREATMENT\",\n  \"habitatId\": \"HAB-001\"\n}"
+          "raw": "{\n  \"name\": \"Pedro\",\n  \"species\": \"DOG\",\n  \"age\": 4,\n  \"gender\": \"MALE\",\n  \"status\": \"IN_TREATMENT\",\n  \"habitatId\": \"HAB-001\"\n}",
         },
         "url": {
           "raw": "{{baseUrl}}/api/animals/{{id}}",

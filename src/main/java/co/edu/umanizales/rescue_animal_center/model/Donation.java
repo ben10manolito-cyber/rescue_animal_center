@@ -13,6 +13,7 @@ import java.time.LocalDate;
 public class Donation {
     private String id;
     private String donorName;
+    private DonationType type;
     private BigDecimal amount;
     private LocalDate date;
 }
