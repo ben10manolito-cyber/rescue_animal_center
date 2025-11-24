@@ -1,0 +1,153 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - Full API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" },
+    { "key": "id", "value": "REPLACE_ID" }
+  ],
+  "item": [
+    {
+      "name": "Animals",
+      "item": [
+        {
+          "name": "List Animals",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/animals" }
+        },
+        {
+          "name": "Create Animal",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Luna\",\n  \"species\": \"CAT\",\n  \"age\": 2,\n  \"gender\": \"FEMALE\",\n  \"status\": \"AVAILABLE\",\n  \"habitatId\": \"HAB-001\"\n}"
+            },
+            "url": "{{baseUrl}}/api/animals"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Habitats",
+      "item": [
+        { "name": "List Habitats", "request": { "method": "GET", "url": "{{baseUrl}}/api/habitats" } },
+        {
+          "name": "Create Habitat",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Main Shelter\",\n  \"description\": \"Indoor area for small animals\"\n}" },
+            "url": "{{baseUrl}}/api/habitats"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Adopters",
+      "item": [
+        { "name": "List Adopters", "request": { "method": "GET", "url": "{{baseUrl}}/api/adopters" } },
+        {
+          "name": "Create Adopter",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\",\n  \"idNumber\": \"A-001\",\n  \"phone\": \"3000000000\",\n  \"address\": {\n    \"street\": \"Main 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hasOtherPets\": true\n}" },
+            "url": "{{baseUrl}}/api/adopters"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Volunteers",
+      "item": [
+        { "name": "List Volunteers", "request": { "method": "GET", "url": "{{baseUrl}}/api/volunteers" } },
+        {
+          "name": "Create Volunteer",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"idNumber\": \"V-001\",\n  \"phone\": \"3001111111\",\n  \"address\": {\n    \"street\": \"Second 2\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00001\"\n  },\n  \"hoursPerWeek\": 10\n}" },
+            "url": "{{baseUrl}}/api/volunteers"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rescuers",
+      "item": [
+        { "name": "List Rescuers", "request": { "method": "GET", "url": "{{baseUrl}}/api/rescuers" } },
+        {
+          "name": "Create Rescuer",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Lopez\",\n  \"idNumber\": \"R-001\",\n  \"phone\": \"3002222222\",\n  \"address\": {\n    \"street\": \"Third 3\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00002\"\n  },\n  \"zone\": \"North\"\n}" },
+            "url": "{{baseUrl}}/api/rescuers"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Adoptions",
+      "item": [
+        { "name": "List Adoptions", "request": { "method": "GET", "url": "{{baseUrl}}/api/adoptions" } },
+        {
+            "name": "Create Adoption",
+            "request": {
+              "method": "POST",
+              "header": [ { "key": "Content-Type", "value": "application/json" } ],
+              "body": { "mode": "raw", "raw": "{\n  \"adopterId\": \"{{id}}\",\n  \"animalId\": \"{{id}}\",\n  \"date\": \"2025-11-23\",\n  \"notes\": \"Approved\"\n}" },
+              "url": "{{baseUrl}}/api/adoptions"
+            }
+        }
+      ]
+    },
+    {
+      "name": "Donations",
+      "item": [
+        { "name": "List Donations", "request": { "method": "GET", "url": "{{baseUrl}}/api/donations" } },
+        {
+          "name": "Create Donation",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"donorName\": \"Carlos\",\n  \"type\": \"MONEY\",\n  \"amount\": 100.50,\n  \"date\": \"2025-11-23\"\n}" },
+            "url": "{{baseUrl}}/api/donations"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Treatments",
+      "item": [
+        { "name": "List Treatments", "request": { "method": "GET", "url": "{{baseUrl}}/api/treatments" } },
+        {
+          "name": "Create Treatment",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"animalId\": \"{{id}}\",\n  \"type\": \"VACCINATION\",\n  \"startDate\": \"2025-11-23\",\n  \"endDate\": \"2025-11-30\",\n  \"notes\": \"First vaccine dose\"\n}" },
+            "url": "{{baseUrl}}/api/treatments"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        { "name": "List Events", "request": { "method": "GET", "url": "{{baseUrl}}/api/events" } },
+        {
+          "name": "Create Event",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"title\": \"Adoption Fair\",\n  \"date\": \"2025-12-01\",\n  \"location\": \"Central Park\"\n}" },
+            "url": "{{baseUrl}}/api/events"
+          }
+        }
+      ]
+    }
+  ]
+}
