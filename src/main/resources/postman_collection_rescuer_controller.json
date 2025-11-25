@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - RescuerController",
+    "description": "Colección para probar los endpoints de RescuerController",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name": "Get All Rescuers", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/rescuers", "host": ["{{baseUrl}}"], "path": ["api", "rescuers"]}}, "response": []},
+    {"name": "Get Rescuer By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/rescuers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "rescuers", "{{id}}"]}}, "response": []},
+    {"name": "Create Rescuer", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Gomez\",\n  \"idNumber\": \"R-001\",\n  \"phone\": \"3000000002\",\n  \"address\": {\n    \"street\": \"Rescue 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"zone\": \"NORTH\"\n}"}, "url": {"raw": "{{baseUrl}}/api/rescuers", "host": ["{{baseUrl}}"], "path": ["api", "rescuers"]}}, "response": []},
+    {"name": "Update Rescuer", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Gomez\",\n  \"idNumber\": \"R-001\",\n  \"phone\": \"3000000002\",\n  \"address\": {\n    \"street\": \"Rescue 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"zone\": \"SOUTH\"\n}"}, "url": {"raw": "{{baseUrl}}/api/rescuers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "rescuers", "{{id}}"]}}, "response": []},
+    {"name": "Delete Rescuer", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/rescuers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "rescuers", "{{id}}"]}}, "response": []}
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "id", "value": "REEMPLAZA-CON-ID-EXISTENTE"}
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - AdopterController",
+    "description": "Colección para probar los endpoints de AdopterController",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name": "Get All Adopters", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adopters", "host": ["{{baseUrl}}"], "path": ["api", "adopters"]}}, "response": []},
+    {"name": "Get Adopter By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adopters/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adopters", "{{id}}"]}}, "response": []},
+    {"name": "Create Adopter", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\",\n  \"idNumber\": \"A-001\",\n  \"phone\": \"3000000000\",\n  \"address\": {\n    \"street\": \"Main 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hasOtherPets\": true\n}"}, "url": {"raw": "{{baseUrl}}/api/adopters", "host": ["{{baseUrl}}"], "path": ["api", "adopters"]}}, "response": []},
+    {"name": "Update Adopter", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe Updated\",\n  \"idNumber\": \"A-001\",\n  \"phone\": \"3000000000\",\n  \"address\": {\n    \"street\": \"Main 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hasOtherPets\": false\n}"}, "url": {"raw": "{{baseUrl}}/api/adopters/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adopters", "{{id}}"]}}, "response": []},
+    {"name": "Delete Adopter", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/adopters/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adopters", "{{id}}"]}}, "response": []}
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "id", "value": "REEMPLAZA-CON-ID-EXISTENTE"}
+  ]
+}

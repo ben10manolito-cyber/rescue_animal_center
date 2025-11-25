@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - DonationController",
+    "description": "Colección para probar los endpoints de DonationController",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name": "Get All Donations", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/donations", "host": ["{{baseUrl}}"], "path": ["api", "donations"]}}, "response": []},
+    {"name": "Get Donation By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/donations/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "donations", "{{id}}"]}}, "response": []},
+    {"name": "Create Donation", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"donorName\": \"Carlos\",\n  \"type\": \"MONEY\",\n  \"amount\": 100.5,\n  \"date\": \"2024-01-01\"\n}"}, "url": {"raw": "{{baseUrl}}/api/donations", "host": ["{{baseUrl}}"], "path": ["api", "donations"]}}, "response": []},
+    {"name": "Update Donation", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"donorName\": \"Carlos\",\n  \"type\": \"FOOD\",\n  \"amount\": 0,\n  \"date\": \"2024-01-10\"\n}"}, "url": {"raw": "{{baseUrl}}/api/donations/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "donations", "{{id}}"]}}, "response": []},
+    {"name": "Delete Donation", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/donations/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "donations", "{{id}}"]}}, "response": []}
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "id", "value": "REEMPLAZA-CON-ID-EXISTENTE"}
+  ]
+}

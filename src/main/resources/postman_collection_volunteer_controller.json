@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - VolunteerController",
+    "description": "Colección para probar los endpoints de VolunteerController",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name": "Get All Volunteers", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/volunteers", "host": ["{{baseUrl}}"], "path": ["api", "volunteers"]}}, "response": []},
+    {"name": "Get Volunteer By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/volunteers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "volunteers", "{{id}}"]}}, "response": []},
+    {"name": "Create Volunteer", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Luis\",\n  \"lastName\": \"Perez\",\n  \"idNumber\": \"V-001\",\n  \"phone\": \"3000000001\",\n  \"address\": {\n    \"street\": \"Street 10\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hoursPerWeek\": 8\n}"}, "url": {"raw": "{{baseUrl}}/api/volunteers", "host": ["{{baseUrl}}"], "path": ["api", "volunteers"]}}, "response": []},
+    {"name": "Update Volunteer", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Luis\",\n  \"lastName\": \"Perez\",\n  \"idNumber\": \"V-001\",\n  \"phone\": \"3000000001\",\n  \"address\": {\n    \"street\": \"Street 10\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hoursPerWeek\": 10\n}"}, "url": {"raw": "{{baseUrl}}/api/volunteers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "volunteers", "{{id}}"]}}, "response": []},
+    {"name": "Delete Volunteer", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/volunteers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "volunteers", "{{id}}"]}}, "response": []}
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "id", "value": "REEMPLAZA-CON-ID-EXISTENTE"}
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - Services",
+    "description": "Colección unificada agrupada por Service. Incluye tests para capturar el id tras crear.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "id", "value": "REEMPLAZA-CON-ID-EXISTENTE"}
+  ],
+  "item": [
+    {
+      "name": "AnimalService",
+      "item": [
+        {"name": "Get All Animals", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/animals", "host": ["{{baseUrl}}"], "path": ["api", "animals"]}}, "response": []},
+        {"name": "Get Animal By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/animals/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "animals", "{{id}}"]}}, "response": []},
+        {"name": "Create Animal", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Firulais\",\n  \"species\": \"DOG\",\n  \"age\": 3,\n  \"gender\": \"MALE\",\n  \"status\": \"AVAILABLE\",\n  \"habitatId\": \"HAB-001\"\n}"}, "url": {"raw": "{{baseUrl}}/api/animals", "host": ["{{baseUrl}}"], "path": ["api", "animals"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try {",
+            "    const json = pm.response.json();",
+            "    const newId = json.id;",
+            "    if (newId) pm.collectionVariables.set('id', newId);",
+            "  } catch (e) {}",
+            "}"
+        ]}}], "response": []},
+        {"name": "Update Animal", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Pedro\",\n  \"species\": \"DOG\",\n  \"age\": 4,\n  \"gender\": \"MALE\",\n  \"status\": \"IN_TREATMENT\",\n  \"habitatId\": \"HAB-001\"\n}"}, "url": {"raw": "{{baseUrl}}/api/animals/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "animals", "{{id}}"]}}, "response": []},
+        {"name": "Delete Animal", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/animals/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "animals", "{{id}}"]}}, "response": []}
+      ]
+    },
+    {
+      "name": "AdopterService",
+      "item": [
+        {"name": "Get All Adopters", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adopters", "host": ["{{baseUrl}}"], "path": ["api", "adopters"]}}, "response": []},
+        {"name": "Get Adopter By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adopters/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adopters", "{{id}}"]}}, "response": []},
+        {"name": "Create Adopter", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe\",\n  \"idNumber\": \"A-001\",\n  \"phone\": \"3000000000\",\n  \"address\": {\n    \"street\": \"Main 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hasOtherPets\": true\n}"}, "url": {"raw": "{{baseUrl}}/api/adopters", "host": ["{{baseUrl}}"], "path": ["api", "adopters"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try { const json = pm.response.json(); const newId = json.id; if (newId) pm.collectionVariables.set('id', newId); } catch(e) {}",
+            "}"
+        ]}}], "response": []},
+        {"name": "Update Adopter", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Doe Updated\",\n  \"idNumber\": \"A-001\",\n  \"phone\": \"3000000000\",\n  \"address\": {\n    \"street\": \"Main 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hasOtherPets\": false\n}"}, "url": {"raw": "{{baseUrl}}/api/adopters/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adopters", "{{id}}"]}}, "response": []},
+        {"name": "Delete Adopter", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/adopters/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adopters", "{{id}}"]}}, "response": []}
+      ]
+    },
+    {
+      "name": "VolunteerService",
+      "item": [
+        {"name": "Get All Volunteers", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/volunteers", "host": ["{{baseUrl}}"], "path": ["api", "volunteers"]}}, "response": []},
+        {"name": "Get Volunteer By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/volunteers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "volunteers", "{{id}}"]}}, "response": []},
+        {"name": "Create Volunteer", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Luis\",\n  \"lastName\": \"Perez\",\n  \"idNumber\": \"V-001\",\n  \"phone\": \"3000000001\",\n  \"address\": {\n    \"street\": \"Street 10\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hoursPerWeek\": 8\n}"}, "url": {"raw": "{{baseUrl}}/api/volunteers", "host": ["{{baseUrl}}"], "path": ["api", "volunteers"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try { const json = pm.response.json(); const newId = json.id; if (newId) pm.collectionVariables.set('id', newId); } catch(e) {}",
+            "}"
+        ]}}], "response": []},
+        {"name": "Update Volunteer", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Luis\",\n  \"lastName\": \"Perez\",\n  \"idNumber\": \"V-001\",\n  \"phone\": \"3000000001\",\n  \"address\": {\n    \"street\": \"Street 10\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"hoursPerWeek\": 10\n}"}, "url": {"raw": "{{baseUrl}}/api/volunteers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "volunteers", "{{id}}"]}}, "response": []},
+        {"name": "Delete Volunteer", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/volunteers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "volunteers", "{{id}}"]}}, "response": []}
+      ]
+    },
+    {
+      "name": "RescuerService",
+      "item": [
+        {"name": "Get All Rescuers", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/rescuers", "host": ["{{baseUrl}}"], "path": ["api", "rescuers"]}}, "response": []},
+        {"name": "Get Rescuer By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/rescuers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "rescuers", "{{id}}"]}}, "response": []},
+        {"name": "Create Rescuer", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Gomez\",\n  \"idNumber\": \"R-001\",\n  \"phone\": \"3000000002\",\n  \"address\": {\n    \"street\": \"Rescue 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"zone\": \"NORTH\"\n}"}, "url": {"raw": "{{baseUrl}}/api/rescuers", "host": ["{{baseUrl}}"], "path": ["api", "rescuers"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try { const json = pm.response.json(); const newId = json.id; if (newId) pm.collectionVariables.set('id', newId); } catch(e) {}",
+            "}"
+        ]}}], "response": []},
+        {"name": "Update Rescuer", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Gomez\",\n  \"idNumber\": \"R-001\",\n  \"phone\": \"3000000002\",\n  \"address\": {\n    \"street\": \"Rescue 1\",\n    \"city\": \"City\",\n    \"state\": \"ST\",\n    \"zipCode\": \"00000\"\n  },\n  \"zone\": \"SOUTH\"\n}"}, "url": {"raw": "{{baseUrl}}/api/rescuers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "rescuers", "{{id}}"]}}, "response": []},
+        {"name": "Delete Rescuer", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/rescuers/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "rescuers", "{{id}}"]}}, "response": []}
+      ]
+    },
+    {
+      "name": "DonationService",
+      "item": [
+        {"name": "Get All Donations", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/donations", "host": ["{{baseUrl}}"], "path": ["api", "donations"]}}, "response": []},
+        {"name": "Get Donation By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/donations/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "donations", "{{id}}"]}}, "response": []},
+        {"name": "Create Donation", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"donorName\": \"Carlos\",\n  \"type\": \"MONEY\",\n  \"amount\": 100.5,\n  \"date\": \"2024-01-01\"\n}"}, "url": {"raw": "{{baseUrl}}/api/donations", "host": ["{{baseUrl}}"], "path": ["api", "donations"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try { const json = pm.response.json(); const newId = json.id; if (newId) pm.collectionVariables.set('id', newId); } catch(e) {}",
+            "}"
+        ]}}], "response": []},
+        {"name": "Update Donation", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"donorName\": \"Carlos\",\n  \"type\": \"FOOD\",\n  \"amount\": 0,\n  \"date\": \"2024-01-10\"\n}"}, "url": {"raw": "{{baseUrl}}/api/donations/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "donations", "{{id}}"]}}, "response": []},
+        {"name": "Delete Donation", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/donations/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "donations", "{{id}}"]}}, "response": []}
+      ]
+    },
+    {
+      "name": "EducationalEventService",
+      "item": [
+        {"name": "Get All Events", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/events", "host": ["{{baseUrl}}"], "path": ["api", "events"]}}, "response": []},
+        {"name": "Get Event By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/events/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "events", "{{id}}"]}}, "response": []},
+        {"name": "Create Event", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"title\": \"Charla de adopción\",\n  \"date\": \"2024-02-01\",\n  \"location\": \"Auditorio A\"\n}"}, "url": {"raw": "{{baseUrl}}/api/events", "host": ["{{baseUrl}}"], "path": ["api", "events"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try { const json = pm.response.json(); const newId = json.id; if (newId) pm.collectionVariables.set('id', newId); } catch(e) {}",
+            "}"
+        ]}}], "response": []},
+        {"name": "Update Event", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"title\": \"Charla de adopción 2\",\n  \"date\": \"2024-02-10\",\n  \"location\": \"Auditorio B\"\n}"}, "url": {"raw": "{{baseUrl}}/api/events/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "events", "{{id}}"]}}, "response": []},
+        {"name": "Delete Event", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/events/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "events", "{{id}}"]}}, "response": []}
+      ]
+    },
+    {
+      "name": "MedicalTreatmentService",
+      "item": [
+        {"name": "Get All Treatments", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/treatments", "host": ["{{baseUrl}}"], "path": ["api", "treatments"]}}, "response": []},
+        {"name": "Get Treatment By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/treatments/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "treatments", "{{id}}"]}}, "response": []},
+        {"name": "Create Treatment", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"animalId\": \"AN-001\",\n  \"type\": \"VACCINE\",\n  \"startDate\": \"2024-03-01\",\n  \"endDate\": \"2024-03-15\",\n  \"notes\": \"Primera dosis aplicada\"\n}"}, "url": {"raw": "{{baseUrl}}/api/treatments", "host": ["{{baseUrl}}"], "path": ["api", "treatments"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try { const json = pm.response.json(); const newId = json.id; if (newId) pm.collectionVariables.set('id', newId); } catch(e) {}",
+            "}"
+        ]}}], "response": []},
+        {"name": "Update Treatment", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"animalId\": \"AN-001\",\n  \"type\": \"SURGERY\",\n  \"startDate\": \"2024-03-05\",\n  \"endDate\": \"2024-03-20\",\n  \"notes\": \"Procedimiento realizado\"\n}"}, "url": {"raw": "{{baseUrl}}/api/treatments/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "treatments", "{{id}}"]}}, "response": []},
+        {"name": "Delete Treatment", "request": {"method": "DELETE", "header": [], "url": {"raw": "{{baseUrl}}/api/treatments/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "treatments", "{{id}}"]}}, "response": []}
+      ]
+    },
+    {
+      "name": "AdoptionService",
+      "item": [
+        {"name": "Get All Adoptions", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adoptions", "host": ["{{baseUrl}}"], "path": ["api", "adoptions"]}}, "response": []},
+        {"name": "Get Adoption By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adoptions/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adoptions", "{{id}}"]}}, "response": []},
+        {"name": "Create Adoption", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"adopterId\": \"AD-001\",\n  \"animalId\": \"AN-001\",\n  \"date\": \"2024-04-01\",\n  \"notes\": \"Proceso exitoso\"\n}"}, "url": {"raw": "{{baseUrl}}/api/adoptions", "host": ["{{baseUrl}}"], "path": ["api", "adoptions"]}}, "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": [
+            "if (pm.response.code === 201 || pm.response.code === 200) {",
+            "  try { const json = pm.response.json(); const newId = json.id; if (newId) pm.collectionVariables.set('id', newId); } catch(e) {}",
+            "}"
+        ]}}], "response": []}
+      ]
+    }
+  ]
+}

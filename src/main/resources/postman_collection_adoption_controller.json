@@ -1,0 +1,16 @@
+{
+  "info": {
+    "name": "Rescue Animal Center - AdoptionController",
+    "description": "Colección para probar los endpoints de AdoptionController",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {"name": "Get All Adoptions", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adoptions", "host": ["{{baseUrl}}"], "path": ["api", "adoptions"]}}, "response": []},
+    {"name": "Get Adoption By Id", "request": {"method": "GET", "header": [], "url": {"raw": "{{baseUrl}}/api/adoptions/{{id}}", "host": ["{{baseUrl}}"], "path": ["api", "adoptions", "{{id}}"]}}, "response": []},
+    {"name": "Create Adoption", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"adopterId\": \"AD-001\",\n  \"animalId\": \"AN-001\",\n  \"date\": \"2024-04-01\",\n  \"notes\": \"Proceso exitoso\"\n}"}, "url": {"raw": "{{baseUrl}}/api/adoptions", "host": ["{{baseUrl}}"], "path": ["api", "adoptions"]}}, "response": []}
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:8080"},
+    {"key": "id", "value": "REEMPLAZA-CON-ID-EXISTENTE"}
+  ]
+}
